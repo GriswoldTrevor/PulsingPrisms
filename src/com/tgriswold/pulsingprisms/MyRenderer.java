@@ -58,6 +58,8 @@ public class MyRenderer implements GLWallpaperService.Renderer {
 	private int color3G;
 	private int color3B;
 	private int color3A;
+	private float vChangeFront;
+	private float vChangeBottom;
 	
 	//Camera Settings
 	private float cameraDistance;
@@ -109,6 +111,9 @@ public class MyRenderer implements GLWallpaperService.Renderer {
 		color3B = Color.blue(color3);
 		color3A = Color.red(color3);
 		
+		vChangeFront = 0.01f * sharedPref.getInt("blockFrontVChange", Integer.parseInt(resources.getString(R.string.blockFrontVChange_default)));
+		vChangeBottom = 0.01f * sharedPref.getInt("blockBottomVChange", Integer.parseInt(resources.getString(R.string.blockBottomVChange_default)));
+		
 		//Camera Settings
 		cameraDistance = -0.2f * sharedPref.getInt("cameraDistance", Integer.parseInt(resources.getString(R.string.cameraDistance_default)));
 		cameraRotateX = 1f * sharedPref.getInt("cameraRotateX", Integer.parseInt(resources.getString(R.string.cameraRotateX_default)));
@@ -119,59 +124,73 @@ public class MyRenderer implements GLWallpaperService.Renderer {
 		aCube = new GLCube(	centerX - 1.00f, centerY +-1.40f, centerZ - 1.00f,
 			   	1.00f, 1.00f, 10.00f,
 			   	color1R, color1G, color1B, color1A,
-			   	blockSpeed*(random.nextInt()%5 + 1));
+			   	blockSpeed*(random.nextInt()%5 + 1),
+			   	vChangeFront, vChangeBottom);
 		bCube = new GLCube(	centerX + 0.00f, centerY - 1.40f, centerZ - 0.50f,
 			   	1.00f, 1.00f, 10.00f,
 			   	color2R, color2G, color2B, color2A,
-			   	blockSpeed*(random.nextInt()%5 + 1));
+			   	blockSpeed*(random.nextInt()%5 + 1),
+			   	vChangeFront, vChangeBottom);
 		cCube = new GLCube(	centerX + 1.00f, centerY - 1.65f, centerZ + 0.00f,
 			   	0.50f, 1.00f, 10.00f,
 			   	color3R, color3G, color3B, color3A,
-			   	blockSpeed*(random.nextInt()%5 + 1));
+			   	blockSpeed*(random.nextInt()%5 + 1),
+			   	vChangeFront, vChangeBottom);
 		dCube = new GLCube(	centerX - 1.50f, centerY + 0.10f, centerZ - 1.00f,
 	   			0.50f, 0.50f, 10.00f,
 	   			color1R, color1G, color1B, color1A,
-   				blockSpeed*(random.nextInt()%5 + 1));
+   				blockSpeed*(random.nextInt()%5 + 1),
+			   	vChangeFront, vChangeBottom);
 		eCube = new GLCube(	centerX - 1.00f, centerY - 0.40f, centerZ - 0.50f,
 				0.50f, 1.25f, 10.00f,
 				color2R, color2G, color2B, color2A,
-				blockSpeed*(random.nextInt()%5 + 1));
+				blockSpeed*(random.nextInt()%5 + 1),
+			   	vChangeFront, vChangeBottom);
 		fCube = new GLCube(	centerX - 0.50f, centerY - 0.40f, centerZ + 0.00f,
 			   	0.50f, 1.00f, 10.00f,
 			   	color3R, color3G, color3B, color3A,
-			   	blockSpeed*(random.nextInt()%5 + 1));
+			   	blockSpeed*(random.nextInt()%5 + 1),
+			   	vChangeFront, vChangeBottom);
 		gCube = new GLCube(	centerX + 0.00f, centerY - 0.40f, centerZ + 0.25f,
 				0.50f, 0.50f, 10.00f,
 				color1R, color1G, color1B, color1A,
-   				blockSpeed*(random.nextInt()%5 + 1));
+   				blockSpeed*(random.nextInt()%5 + 1),
+			   	vChangeFront, vChangeBottom);
 		hCube = new GLCube(	centerX + 0.50f, centerY - 0.40f, centerZ + 0.75f,
 				0.50f, 0.50f, 10.00f,
 				color3R, color3G, color3B, color3A,
-			   	blockSpeed*(random.nextInt()%5 + 1));
+			   	blockSpeed*(random.nextInt()%5 + 1),
+			   	vChangeFront, vChangeBottom);
 		iCube = new GLCube(	centerX + 1.00f, centerY - 0.65f, centerZ + 0.50f,
 				0.50f, 2.00f, 10.00f,
 				color1R, color1G, color1B, color1A,
-			   	blockSpeed*(random.nextInt()%5 + 1));
+			   	blockSpeed*(random.nextInt()%5 + 1),
+			   	vChangeFront, vChangeBottom);
 		jCube = new GLCube(	centerX + 1.50f, centerY - 0.40f, centerZ + 0.75f,
 				0.25f, 0.50f, 10.00f,
 				color2R, color2G, color2B, color2A,
-			   	blockSpeed*(random.nextInt()%5 + 1));
+			   	blockSpeed*(random.nextInt()%5 + 1),
+			   	vChangeFront, vChangeBottom);
 		kCube = new GLCube(	centerX - 0.50f, centerY + 0.60f, centerZ + 0.25f,
 				0.50f, 0.50f, 10.00f,
 				color1R, color1G, color1B, color1A,
-   				blockSpeed*(random.nextInt()%5 + 1));
+   				blockSpeed*(random.nextInt()%5 + 1),
+			   	vChangeFront, vChangeBottom);
 		lCube = new GLCube(	centerX + 0.00f, centerY + 0.10f, centerZ + 1.25f,
 				1.00f, 1.00f, 10.00f,
 				color2R, color2G, color2B, color2A,
-				blockSpeed*(random.nextInt()%5 + 1));
+				blockSpeed*(random.nextInt()%5 + 1),
+			   	vChangeFront, vChangeBottom);
 		mCube = new GLCube(	centerX - 1.50f, centerY + 1.10f, centerZ - 0.25f,
 				1.25f, 0.50f, 10.00f,
 				color3R, color3G, color3B, color3A,
-   				blockSpeed*(random.nextInt()%5 + 1));
+   				blockSpeed*(random.nextInt()%5 + 1),
+			   	vChangeFront, vChangeBottom);
 		nCube = new GLCube(	centerX - 0.2f, centerY + 1.10f, centerZ + 0.75f,
 				1.00f, 0.25f, 10.00f,
 				color3R, color3G, color3B, color3A,
-   				blockSpeed*(random.nextInt()%5 + 1));
+   				blockSpeed*(random.nextInt()%5 + 1),
+			   	vChangeFront, vChangeBottom);
 	}
 
 	public void onDrawFrame(GL10 gl) {

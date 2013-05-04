@@ -28,6 +28,28 @@
             android:title="@string/blockColor3_title"
             android:defaultValue="0xFFFE7443"
             android:persistent="true" />
+        
+        <com.robobunny.SeekBarPreference
+            android:key="blockFrontVChange"
+            android:title="@string/blockFrontVChange_title"
+            android:summary="@string/blockFrontVChange_summary"
+            android:defaultValue="@string/blockFrontVChange_default"
+            android:persistent="true"
+            android:max="25"
+            robobunny:min="-25"
+            robobunny:unitsLeft=""
+            robobunny:unitsRight="" />
+        
+        <com.robobunny.SeekBarPreference
+            android:key="blockBottomVChange"
+            android:title="@string/blockBottomVChange_title"
+            android:summary="@string/blockBottomVChange_summary"
+            android:defaultValue="@string/blockBottomVChange_default"
+            android:persistent="true"
+            android:max="25"
+            robobunny:min="-25"
+            robobunny:unitsLeft=""
+            robobunny:unitsRight="" />
     </PreferenceCategory>
     
     <PreferenceCategory

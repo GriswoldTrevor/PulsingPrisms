@@ -42,7 +42,7 @@ public class GLCube {
 
 	public GLCube() {
 		this.init(0f, 0f, 0f, 1f, 1f, 1f);
-		calcColors(255, 0, 0, 255);
+		calcColors(255, 0, 0, 255, -0.04f, -0.14f);
 		
 		zInc = 0.01f;
 		currentZShift = 0f;
@@ -51,7 +51,7 @@ public class GLCube {
 	}
 	public GLCube(float centerX, float centerY, float centerZ) {
 		this.init(centerX, centerY, centerZ, 1f, 1f, 1f);
-		calcColors(255, 0, 0, 255);
+		calcColors(255, 0, 0, 255, -0.04f, -0.14f);
 		
 		zInc = 0.01f;
 		currentZShift = 0f;
@@ -60,7 +60,7 @@ public class GLCube {
 	}
 	public GLCube(float centerX, float centerY, float centerZ, float width, float height, float depth) {
 		this.init(centerX, centerY, centerZ, width, height, depth);
-		calcColors(255, 0, 0, 255);
+		calcColors(255, 0, 0, 255, -0.04f, -0.14f);
 		
 		zInc = 0.01f;
 		currentZShift = 0f;
@@ -69,7 +69,7 @@ public class GLCube {
 	}
 	public GLCube(float centerX, float centerY, float centerZ, float width, float height, float depth, int r, int g, int b, int a) {
 		this.init(centerX, centerY, centerZ, width, height, depth);
-		calcColors(r, g, b, a);
+		calcColors(r, g, b, a, -0.04f, -0.14f);
 		
 		zInc = 0.01f;
 		currentZShift = 0f;
@@ -79,14 +79,24 @@ public class GLCube {
 	public GLCube(float centerX, float centerY, float centerZ, float width, float height, float depth, int r, int g, int b, int a, float zInc) {
 		this.init(centerX, centerY, centerZ, width, height, depth);
 		this.zInc = zInc;
-		calcColors(r, g, b, a);
+		calcColors(r, g, b, a, -0.04f, -0.14f);
 		
 		currentZShift = 0f;
 		maxZShift = 0.75f;
 		zShiftDir = 1f;
 	}
 	
-	private void calcColors(int r, int g, int b, int a){
+	public GLCube(float centerX, float centerY, float centerZ, float width, float height, float depth, int r, int g, int b, int a, float zInc, float vChangeFront, float vChangeBottom) {
+		this.init(centerX, centerY, centerZ, width, height, depth);
+		this.zInc = zInc;
+		calcColors(r, g, b, a, vChangeFront, vChangeBottom);
+		
+		currentZShift = 0f;
+		maxZShift = 0.75f;
+		zShiftDir = 1f;
+	}
+	
+	private void calcColors(int r, int g, int b, int a, float vChangeFront, float vChangeBottom){
 		float[] hsvAry = new float[3];
 		
 		this.r = (float) (r/255.0);
@@ -99,12 +109,12 @@ public class GLCube {
 		float s = hsvAry[1];
 		float v = hsvAry[2];
 		
-		int darkColor = Color.HSVToColor(new float[] {h,s,Math.max(0f, v-0.04f)});
+		int darkColor = Color.HSVToColor(new float[] {h,s,Math.max(0f, v+vChangeFront)});
 		darkR = (float) (Color.red(darkColor)/255.0);
 		darkG = (float) (Color.green(darkColor)/255.0);
 		darkB = (float) (Color.blue(darkColor)/255.0);
 		
-		int darkerColor = Color.HSVToColor(new float[] {h,s,Math.max(0f, v-0.14f)});
+		int darkerColor = Color.HSVToColor(new float[] {h,s,Math.max(0f, v+vChangeBottom)});
 		darkerR = (float) (Color.red(darkerColor)/255.0);
 		darkerG = (float) (Color.green(darkerColor)/255.0);
 		darkerB = (float) (Color.blue(darkerColor)/255.0);
