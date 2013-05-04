@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pulsing Prisms</string>
+    <string name="service_label">Pulsing Prisms</string>
+    <string name="description">Pulsing Prisms</string>
+    
+    
+    <string name="pref_colors_title">Color Settings</string>
+    
+    <string name="worldColor_title">Background Color</string>
+    <string name="worldColor_default">0xFF333333</string>
+    
+    <string name="blockColor1_title">Block Group 1 Color</string>
+    <string name="blockColor1_default">0xFFFFFFFF</string>
+    
+    <string name="blockColor2_title">Block Group 2 Color</string>
+    <string name="blockColor2_default">0xFF007FD2</string>
+    
+    <string name="blockColor3_title">Block Group 3 Color</string>
+    <string name="blockColor3_default">0xFFFE7443</string>
+   
+    
+    <string name="pref_world_title">World Settings</string>
+        
+    <string name="blockSpeed_title">Block Speed Multiplier</string>
+    <string name="blockSpeed_summary">Speed at which the blocks move</string>
+    <string name="blockSpeed_default">10</string>
+    
+    <string name="worldCenterX_title">Center X</string>
+    <string name="worldCenterX_summary">X coordinate for the world\'s center</string>
+    <string name="worldCenterX_default">6</string>
+    
+    <string name="worldCenterY_title">Center Y</string>
+    <string name="worldCenterY_summary">Y coordinate for the world\'s center</string>
+    <string name="worldCenterY_default">5</string>
+    
+    <string name="worldCenterZ_title">Center Z</string>
+    <string name="worldCenterZ_summary">Z coordinate for the world\'s center</string>
+    <string name="worldCenterZ_default">-7</string>
+    
+
+    <string name="pref_camera_title">Camera Settings</string>
+    
+    <string name="cameraDistance_title">Distance</string>
+    <string name="cameraDistance_summary">Camera\'s distance from the world\'s center</string>
+    <string name="cameraDistance_default">21</string>
+    
+    <string name="cameraRotateX_title">Rotate X</string>
+    <string name="cameraRotateX_summary">Camera rotation along the X axis</string>
+    <string name="cameraRotateX_default">-45</string>
+    
+    <string name="cameraRotateY_title">Rotate Y</string>
+    <string name="cameraRotateY_summary">Camera rotation along the Y axis</string>
+    <string name="cameraRotateY_default">35</string>
+    
+    <string name="cameraRotateZ_title">Rotate Z</string>
+    <string name="cameraRotateZ_summary">Camera rotation along the Z axis</string>
+    <string name="cameraRotateZ_default">10</string>
+</resources>

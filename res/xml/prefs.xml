@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:robobunny="http://robobunny.com">
+    <PreferenceCategory
+        android:title="@string/pref_colors_title"
+        android:key="pref_key_colors"
+        android:persistent="false">
+        
+        <yuku.ambilwarna.widget.AmbilWarnaPreference
+            android:key="worldColor"
+            android:title="@string/worldColor_title"
+            android:defaultValue="0xFF333333"
+            android:persistent="true" />
+        
+        <yuku.ambilwarna.widget.AmbilWarnaPreference
+            android:key="blockColor1"
+            android:title="@string/blockColor1_title"
+            android:defaultValue="0xFFFFFFFF"
+            android:persistent="true" />
+        
+        <yuku.ambilwarna.widget.AmbilWarnaPreference
+            android:key="blockColor2"
+            android:title="@string/blockColor2_title"
+            android:defaultValue="0xFF007FD2"
+            android:persistent="true" />
+        
+        <yuku.ambilwarna.widget.AmbilWarnaPreference
+            android:key="blockColor3"
+            android:title="@string/blockColor3_title"
+            android:defaultValue="0xFFFE7443"
+            android:persistent="true" />
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+        android:title="@string/pref_world_title"
+        android:key="pref_key_world"
+        android:persistent="false">
+        
+        <com.robobunny.SeekBarPreference
+            android:key="blockSpeed"
+            android:title="@string/blockSpeed_title"
+            android:summary="@string/blockSpeed_summary"
+            android:defaultValue="@string/blockSpeed_default"
+            android:persistent="true"
+            android:max="25"
+            robobunny:min="0"
+            robobunny:unitsLeft=""
+            robobunny:unitsRight="" />
+        
+        <com.robobunny.SeekBarPreference
+            android:key="worldCenterX"
+            android:title="@string/worldCenterX_title"
+            android:summary="@string/worldCenterX_summary"
+            android:defaultValue="@string/worldCenterX_default"
+            android:persistent="true"
+            android:max="50"
+            robobunny:min="-50"
+            robobunny:unitsLeft=""
+            robobunny:unitsRight="" />
+        
+        <com.robobunny.SeekBarPreference
+            android:key="worldCenterY"
+            android:title="@string/worldCenterY_title"
+            android:summary="@string/worldCenterY_summary"
+            android:defaultValue="@string/worldCenterY_default"
+            android:persistent="true"
+            android:max="50"
+            robobunny:min="-50"
+            robobunny:unitsLeft=""
+            robobunny:unitsRight="" />
+        
+        <com.robobunny.SeekBarPreference
+            android:key="worldCenterZ"
+            android:title="@string/worldCenterZ_title"
+            android:summary="@string/worldCenterZ_summary"
+            android:defaultValue="@string/worldCenterZ_default"
+            android:persistent="true"
+            android:max="50"
+            robobunny:min="-50"
+            robobunny:unitsLeft=""
+            robobunny:unitsRight="" />
+        
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+        android:title="@string/pref_camera_title"
+        android:key="pref_key_camera"
+        android:persistent="false">
+        
+        <com.robobunny.SeekBarPreference
+            android:key="cameraDistance"
+            android:title="@string/cameraDistance_title"
+            android:summary="@string/cameraDistance_summary"
+            android:defaultValue="@string/cameraDistance_default"
+            android:persistent="true"
+            android:max="50"
+            robobunny:min="0"
+            robobunny:unitsLeft=""
+            robobunny:unitsRight="" />
+        
+        <com.robobunny.SeekBarPreference
+            android:key="cameraRotateX"
+            android:title="@string/cameraRotateX_title"
+            android:summary="@string/cameraRotateX_summary"
+            android:defaultValue="@string/cameraRotateX_default"
+            android:persistent="true"
+            android:max="90"
+            robobunny:min="-90"
+            robobunny:unitsLeft=""
+            robobunny:unitsRight="" />
+        
+        <com.robobunny.SeekBarPreference
+            android:key="cameraRotateY"
+            android:title="@string/cameraRotateY_title"
+            android:summary="@string/cameraRotateY_summary"
+            android:defaultValue="@string/cameraRotateY_default"
+            android:persistent="true"
+            android:max="90"
+            robobunny:min="-90"
+            robobunny:unitsLeft=""
+            robobunny:unitsRight="" />
+        
+        <com.robobunny.SeekBarPreference
+            android:key="cameraRotateZ"
+            android:title="@string/cameraRotateZ_title"
+            android:summary="@string/cameraRotateZ_summary"
+            android:defaultValue="@string/cameraRotateZ_default"
+            android:persistent="true"
+            android:max="90"
+            robobunny:min="-90"
+            robobunny:unitsLeft=""
+            robobunny:unitsRight="" />
+    </PreferenceCategory>
+    
+    
+</PreferenceScreen> 
